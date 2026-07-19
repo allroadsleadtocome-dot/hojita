@@ -154,7 +154,7 @@ body {
 }
 
 .menu-btn {
-  display: none;
+  display: block;
   background: none;
   border: none;
   color: #6a5a72;
