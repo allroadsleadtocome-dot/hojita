@@ -169,12 +169,14 @@ body {
 
 .menu-btn {
   display: block;
-  background: none;
+  background: #d4c4e0;
   border: none;
-  color: #6a5a72;
+  color: #3a2a42;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .menu-btn:hover {
