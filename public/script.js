@@ -335,12 +335,25 @@ input.addEventListener("input", () => {
   input.style.height = Math.min(input.scrollHeight, 120) + "px";
 });
 
+function updateSidebar() {
+  const isMobile = window.innerWidth <= 820;
+  if (isMobile) {
+    sidebar.style.transform = sidebar.classList.contains("open") ? "translateX(0)" : "translateX(-100%)";
+  } else {
+    sidebar.style.transform = sidebar.classList.contains("open") ? "translateX(0)" : "translateX(-100%)";
+    document.querySelector(".main").style.marginLeft = sidebar.classList.contains("open") ? "260px" : "0";
+  }
+}
+
 if (window.innerWidth > 820) {
   sidebar.classList.add("open");
+  sidebar.style.transform = "translateX(0)";
+  document.querySelector(".main").style.marginLeft = "260px";
 }
 
 menuBtn.addEventListener("click", () => {
   sidebar.classList.toggle("open");
+  updateSidebar();
 });
 
 loadChats();
