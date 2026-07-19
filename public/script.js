@@ -17,8 +17,6 @@ let currentFileType = null;
 
 const LEAF_SVG = `<svg viewBox="0 0 100 100" width="20" height="20"><path d="M50 92 C30 80 10 65 5 40 C0 15 20 5 35 8 C50 11 55 20 55 20 C55 20 60 5 80 5 C95 5 98 20 95 35 C90 55 75 70 55 85 L50 92Z" fill="#4ade80" opacity="0.9"/><path d="M50 92 C45 80 40 65 42 50 C44 35 50 25 55 20" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 50 C40 55 30 58 25 55" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/><path d="M55 45 C48 42 42 38 38 32" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/><path d="M58 55 C65 50 72 48 78 50" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/></svg>`;
 
-menuBtn.addEventListener("click", () => sidebar.classList.toggle("open"));
-
 function loadChats() {
   try { chats = JSON.parse(localStorage.getItem("hojita_chats")) || []; }
   catch { chats = []; }
@@ -335,6 +333,14 @@ input.addEventListener("keydown", (e) => {
 input.addEventListener("input", () => {
   input.style.height = "auto";
   input.style.height = Math.min(input.scrollHeight, 120) + "px";
+});
+
+if (window.innerWidth > 820) {
+  sidebar.classList.add("open");
+}
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
 });
 
 loadChats();

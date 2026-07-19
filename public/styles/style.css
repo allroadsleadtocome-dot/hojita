@@ -23,6 +23,11 @@ body {
   gap: 8px;
   border-right: 1px solid #c4b0d8;
   transition: transform 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1000;
 }
 
 .main {
@@ -31,7 +36,6 @@ body {
   flex-direction: column;
   min-width: 0;
   background: #e8dff5;
-  transition: margin-left 0.3s;
 }
 
 .sidebar-header {
@@ -627,18 +631,22 @@ body {
   color: #8a3a3a;
 }
 
-/* Responsive */
+/* Sidebar responsive */
 @media (max-width: 820px) {
   .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    z-index: 1000;
     transform: translateX(-100%);
   }
   .sidebar.open {
     transform: translateX(0);
+  }
+  .input-container {
+    padding: 8px 12px 32px;
+  }
+  .topbar {
+    padding: 10px 16px;
+  }
+  .messages {
+    padding: 16px 16px 4px;
   }
   .welcome h2 {
     font-size: 20px;
@@ -654,13 +662,22 @@ body {
   .mode-icon {
     font-size: 22px;
   }
-  .input-container {
-    padding: 8px 12px 32px;
+}
+
+@media (min-width: 821px) {
+  .sidebar {
+    transform: translateX(0);
   }
-  .topbar {
-    padding: 10px 16px;
+  .sidebar.open {
+    transform: translateX(0);
   }
-  .messages {
-    padding: 16px 16px 4px;
+  .main {
+    margin-left: 260px;
+  }
+  .sidebar:not(.open) {
+    transform: translateX(-100%);
+  }
+  .sidebar:not(.open) ~ .main {
+    margin-left: 0;
   }
 }
